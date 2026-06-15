@@ -130,7 +130,43 @@ npm run preview
 
 ---
 
+
 ## Docker Deployment
+
+## ⚡ Vercel Deployment
+
+You can deploy this React SPA application directly to Vercel. Because client-side routing is handled by React Router (SPA), we have included a [vercel.json](file:///home/lol/Interview%20platfrom/frontend/vercel.json) file at the root to handle URL rewrites correctly (avoiding 404 errors on page reload).
+
+### Steps to Deploy via Vercel CLI
+
+1. **Install Vercel CLI globally**:
+   ```bash
+   npm install -g vercel
+   ```
+
+2. **Run Vercel link/deployment**:
+   ```bash
+   vercel
+   ```
+   Follow the prompts in your terminal. Vercel will auto-detect Vite. Ensure the build command is set to `npm run build` and output directory is set to `dist`.
+
+3. **Configure Environment Variables**:
+   In the Vercel project dashboard under **Project Settings > Environment Variables**, define:
+   - `VITE_API_BASE_URL`: Your production backend REST API URL (e.g., `https://api.example.com`).
+   - `VITE_WS_BASE_URL`: Your production WebSocket URL (e.g., `https://api.example.com`).
+
+4. **Deploy to Production**:
+   ```bash
+   vercel --prod
+   ```
+
+### Deploying via Git Integration (Recommended)
+Alternatively, import this repository into your Vercel account via the dashboard. Vercel will automatically build and deploy the app on every commit to your main branch.
+
+---
+
+## 🐳 Docker Deployment
+91d6d56 (Add vercel configuration)
 
 The application features a production-ready multi-stage Docker build utilizing **Nginx Alpine** to serve static files and handle internal proxying.
 
@@ -144,3 +180,4 @@ docker build -t interviewhub-frontend .
 docker run -d -p 80:80 --name interviewhub-frontend-instance interviewhub-frontend
 ```
 This serves the application on port `80`. Nginx will proxy request paths starting with `/api` and `/ws` automatically to `http://backend:8080` inside the network.
+
