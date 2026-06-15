@@ -100,12 +100,17 @@ export function useRoomSocket({
 
   const sendMessage = useCallback((msg) => {
     if (clientRef.current?.connected) {
+      const enrichedMsg = {
+        senderId: userId,
+        senderName: guestName || 'Anonymous',
+        ...msg
+      }
       clientRef.current.publish({
         destination: `/app/room/${roomToken}`,
-        body: JSON.stringify(msg),
+        body: JSON.stringify(enrichedMsg),
       })
     }
-  }, [roomToken])
+  }, [roomToken, userId, guestName])
 
   useEffect(() => {
     if (!enabled || !roomToken) return

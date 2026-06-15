@@ -279,7 +279,7 @@ export function useWebRTC({ roomToken, localUserId, sendSignal, maxPeers = 3 }) 
 
     pc.onicecandidate = e => {
       if (e.candidate) {
-        sendSignal({ type: 'ICE_CANDIDATE', targetPeerId: peerId, payload: e.candidate })
+        sendSignal({ type: 'ICE_CANDIDATE', senderId: localUserId, targetPeerId: peerId, payload: e.candidate })
       }
     }
 
@@ -357,7 +357,7 @@ export function useWebRTC({ roomToken, localUserId, sendSignal, maxPeers = 3 }) 
 
     const offer = await pc.createOffer()
     await pc.setLocalDescription(offer)
-    sendSignal({ type: 'WEBRTC_OFFER', targetPeerId: peerId, payload: offer })
+    sendSignal({ type: 'WEBRTC_OFFER', senderId: localUserId, targetPeerId: peerId, payload: offer })
   }, [getOrCreatePC, sendSignal, startLocalMedia, _addLocalTracks])
 
   /**
@@ -384,7 +384,7 @@ export function useWebRTC({ roomToken, localUserId, sendSignal, maxPeers = 3 }) 
 
     const answer = await pc.createAnswer()
     await pc.setLocalDescription(answer)
-    sendSignal({ type: 'WEBRTC_ANSWER', targetPeerId: fromId, payload: answer })
+    sendSignal({ type: 'WEBRTC_ANSWER', senderId: localUserId, targetPeerId: fromId, payload: answer })
   }, [getOrCreatePC, sendSignal, startLocalMedia, _addLocalTracks, _flushPendingCandidates])
 
   const handleAnswer = useCallback(async (fromId, answer) => {

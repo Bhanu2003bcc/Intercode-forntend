@@ -1038,7 +1038,7 @@ export default function InterviewRoomPage() {
     roomToken,
     userId: effectiveUser?.id,
     guestId: guestUser?.id,
-    guestName: guestUser?.fullName,
+    guestName: effectiveUser?.fullName,
     onMessage: handleSocketMessage,
     enabled: !!effectiveUser,   // connect immediately; we gate USER_JOIN separately
   })
