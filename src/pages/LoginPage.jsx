@@ -88,19 +88,23 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <div className="auth-divider" style={{ marginTop: 24, marginBottom: 16 }}>Quick Demo Access</div>
+        {import.meta.env.DEV && (
+          <>
+            <div className="auth-divider" style={{ marginTop: 24, marginBottom: 16 }}>Quick Demo Access</div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          <button className="oauth-btn" onClick={() => demoLogin('admin@interview.dev', 'Admin@123')}>
-            <span>🛡️</span> Login as Admin
-          </button>
-          <button className="oauth-btn" onClick={() => demoLogin('interviewer@interview.dev', 'Interviewer@123')}>
-            <span>👤</span> Login as Interviewer
-          </button>
-          <button className="oauth-btn" onClick={() => demoLogin('candidate@interview.dev', 'Candidate@123')}>
-            <span>🎓</span> Login as Candidate
-          </button>
-        </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <button className="oauth-btn" onClick={() => demoLogin('admin@interview.dev', 'Admin@123')}>
+                <span>🛡️</span> Login as Admin
+              </button>
+              <button className="oauth-btn" onClick={() => demoLogin('interviewer@interview.dev', 'Interviewer@123')}>
+                <span>👤</span> Login as Interviewer
+              </button>
+              <button className="oauth-btn" onClick={() => demoLogin('candidate@interview.dev', 'Candidate@123')}>
+                <span>🎓</span> Login as Candidate
+              </button>
+            </div>
+          </>
+        )}
 
         <p style={{ textAlign: 'center', fontSize: 14, color: 'var(--text-muted)', marginTop: 24 }}>
           No account? <Link to="/register" className="auth-link">Create one</Link>
