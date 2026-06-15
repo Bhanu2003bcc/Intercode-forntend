@@ -1,36 +1,37 @@
-# 🚀 InterviewHub — Frontend Client
+# InterviewHub — Frontend Client
 
 A high-performance, real-time collaborative coding assessment and interview platform designed to connect candidate skills with expert hiring teams. Built with **React**, **Vite**, **Monaco Editor**, **WebRTC**, and **WebSockets**.
+<img width="1710" height="958" alt="image" src="https://github.com/user-attachments/assets/10d68280-3e6d-43e0-b497-a6f0fd75368f" />
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-- 💻 **Real-time Collaborative Code Editor**: 
+-  **Real-time Collaborative Code Editor**: 
   - Integrated with **Monaco Editor** (the engine behind VS Code).
   - Multi-language support: Python, Java, Go, C++, and C.
   - Live, debounced code synchronization between interviewers and candidates.
-- 📹 **Integrated WebRTC Video/Audio & Screen Share**:
+-  **Integrated WebRTC Video/Audio & Screen Share**:
   - Direct peer-to-peer connection for high-quality audio and video.
   - One-click screen sharing to present diagrams or other browser windows.
-- ⚡ **Synchronized Workspace Panels**:
+-  **Synchronized Workspace Panels**:
   - Shared room workspace with resizable panels (Video, Editor, Chat).
   - Websocket synchronization of workspace layouts and panel sizes across all participants.
-- ⚙️ **Code Execution Engine Integration**:
+-  **Code Execution Engine Integration**:
   - Live compilation and execution of files.
   - Instant stdout/stderr feedback with execution time diagnostics.
-- 💬 **Interactive Chat**:
+-  **Interactive Chat**:
   - Seamless in-room text communications, helping to convey ideas and share references.
-- 📊 **Analytics & Dashboard**:
+-  **Analytics & Dashboard**:
   - Overview statistics of scheduled and completed interviews.
   - Dynamic user management and logs.
-- 🔐 **Secure Auth & Role Guards**:
+-  **Secure Auth & Role Guards**:
   - Secure JWT authentication with client interceptors for token attachment.
   - Role-based permissions (Admin, Interviewer, Candidate) to control room creation and status updating.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Core**: [React](https://react.dev/) (v19) & [Vite](https://vite.dev/) (v8)
 - **Routing**: [React Router DOM](https://reactrouter.com/) (v7)
@@ -43,7 +44,7 @@ A high-performance, real-time collaborative coding assessment and interview plat
 
 ---
 
-## 📂 Codebase Directory Structure
+## Codebase Directory Structure
 
 ```text
 frontend/
@@ -79,7 +80,7 @@ frontend/
 
 ---
 
-## ⚙️ Environment Configuration
+## Environment Configuration
 
 Create a `.env` file in the root directory to customize the connection endpoints:
 
@@ -90,7 +91,7 @@ Create a `.env` file in the root directory to customize the connection endpoints
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -129,7 +130,7 @@ npm run preview
 
 ---
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 The application features a production-ready multi-stage Docker build utilizing **Nginx Alpine** to serve static files and handle internal proxying.
 
