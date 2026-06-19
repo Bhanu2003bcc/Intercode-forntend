@@ -30,6 +30,7 @@ A high-performance, real-time collaborative coding assessment and interview plat
   - Role-based permissions (Admin, Interviewer, Candidate) to control room creation and status updating.
 
 ---
+<img width="1450" height="923" alt="image" src="https://github.com/user-attachments/assets/a5995e6d-b568-41fc-af2a-d917806f608b" />
 
 ## Tech Stack
 
