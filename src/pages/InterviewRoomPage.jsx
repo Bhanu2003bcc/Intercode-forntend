@@ -851,7 +851,7 @@ const LANGS = [
   { value: 'C',      label: 'C',      monaco: 'c',      starter: '#include <stdio.h>\nint main() {\n    printf("Hello, World!\\n");\n    return 0;\n}' },
 ]
 
-function IDEPanel({ code, onCodeChange, langValue, onLangChange, running, result, interviewId, onRun }) {
+function IDEPanel({ code, onCodeChange, langValue, onLangChange, running, result, interviewId, onRun, theme }) {
   const lang = LANGS.find(l => l.value === langValue) || LANGS[0]
   const [stdin, setStdin] = useState('')
 
@@ -1269,6 +1269,7 @@ export default function InterviewRoomPage() {
               result={result}
               interviewId={interview?.id}
               onRun={handleRun}
+              theme={theme}
             />
           </div>
         </div>
