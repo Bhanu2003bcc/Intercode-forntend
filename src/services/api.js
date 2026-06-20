@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { AUTH_EXPIRED_EVENT } from '../contexts/AuthContext'
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
 
@@ -19,9 +20,12 @@ api.interceptors.response.use(
     if (err.response?.status === 401) {
       const token = localStorage.getItem('token')
       if (token) {
+        // Clear persisted auth data
         localStorage.removeItem('token')
         localStorage.removeItem('user')
-        window.location.href = '/login'
+        // Fire a custom event so AuthContext can update React state
+        // (avoids a hard reload that bypasses React Router guards)
+        window.dispatchEvent(new Event(AUTH_EXPIRED_EVENT))
       }
     }
     return Promise.reject(err)

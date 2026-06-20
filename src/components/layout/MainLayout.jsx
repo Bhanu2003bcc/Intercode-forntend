@@ -1,14 +1,15 @@
 import { Outlet, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import { useState } from 'react'
+import ThemeToggle from '../ThemeToggle'
 import { 
   LayoutDashboard, Calendar, BarChart3, LogOut, Menu, X, Code2
 } from 'lucide-react'
 
 const navItems = [
-  { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, roles: ['ADMIN','INTERVIEWER','CANDIDATE'] },
-  { path: '/interviews', label: 'Interviews', icon: Calendar, roles: ['ADMIN','INTERVIEWER','CANDIDATE'] },
-  { path: '/analytics', label: 'Analytics', icon: BarChart3, roles: ['ADMIN','INTERVIEWER'] },
+  { path: '/app/dashboard', label: 'Dashboard', icon: LayoutDashboard, roles: ['ADMIN','INTERVIEWER','CANDIDATE'] },
+  { path: '/app/interviews', label: 'Interviews', icon: Calendar, roles: ['ADMIN','INTERVIEWER','CANDIDATE'] },
+  { path: '/app/analytics', label: 'Analytics', icon: BarChart3, roles: ['ADMIN','INTERVIEWER'] },
 ]
 
 function RoleBadge({ role }) {
@@ -87,7 +88,8 @@ export default function MainLayout() {
           </button>
           <style>{`@media(max-width:1024px){#sidebar-toggle{display:flex!important}}`}</style>
           <div /> {/* spacer */}
-          <div className="topbar-right">
+          <div className="topbar-right" style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+            <ThemeToggle />
             <div className="flex items-center gap-2">
               <div className="user-avatar" style={{ width: 32, height: 32, fontSize: 12 }}>
                 {user?.avatarUrl ? <img src={user.avatarUrl} alt="" /> : initials}

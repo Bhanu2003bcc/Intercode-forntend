@@ -54,7 +54,7 @@ export default function DashboardPage() {
             <p>Here's what's happening on InterviewHub today.</p>
           </div>
           {hasRole('ADMIN', 'INTERVIEWER') && (
-            <button className="btn btn-primary" onClick={() => navigate('/interviews')}>
+            <button className="btn btn-primary" onClick={() => navigate('/app/interviews')}>
               <Plus size={16} /> Schedule Interview
             </button>
           )}
@@ -65,17 +65,17 @@ export default function DashboardPage() {
       {hasRole('ADMIN', 'INTERVIEWER') && (
         <div className="stats-grid">
           <StatCard icon={Calendar} label="Total Interviews" value={stats?.totalInterviews}
-            color="var(--accent-primary)" iconBg="rgba(99,102,241,0.15)" />
+            color="var(--accent-primary)" iconBg="var(--bg-base)" />
           <StatCard icon={Clock} label="Scheduled" value={stats?.scheduledInterviews}
-            color="var(--accent-cyan)" iconBg="rgba(6,182,212,0.15)" />
+            color="var(--accent-cyan)" iconBg="#E8F8F5" />
           <StatCard icon={TrendingUp} label="In Progress" value={stats?.inProgressInterviews}
-            color="var(--accent-amber)" iconBg="rgba(245,158,11,0.15)" />
+            color="var(--accent-amber)" iconBg="#FEF9E7" />
           <StatCard icon={CheckCircle} label="Completed" value={stats?.completedInterviews}
-            color="var(--accent-green)" iconBg="rgba(16,185,129,0.15)" />
+            color="var(--accent-green)" iconBg="#EAF2F8" />
           <StatCard icon={Users} label="Candidates" value={stats?.totalCandidates}
-            color="var(--accent-pink)" iconBg="rgba(236,72,153,0.15)" />
+            color="var(--accent-pink)" iconBg="#FADBD8" />
           <StatCard icon={Users} label="Submissions" value={stats?.totalSubmissions}
-            color="var(--accent-secondary)" iconBg="rgba(139,92,246,0.15)" />
+            color="var(--accent-secondary)" iconBg="#EBF5FB" />
         </div>
       )}
 
@@ -83,7 +83,7 @@ export default function DashboardPage() {
       <div className="table-container">
         <div className="table-header">
           <h3>Recent Interviews</h3>
-          <button className="btn btn-secondary btn-sm" onClick={() => navigate('/interviews')}>
+          <button className="btn btn-secondary btn-sm" onClick={() => navigate('/app/interviews')}>
             View All <ArrowRight size={14} />
           </button>
         </div>
@@ -94,7 +94,7 @@ export default function DashboardPage() {
             <div className="empty-state-icon">📅</div>
             <p>No interviews yet</p>
             {hasRole('ADMIN', 'INTERVIEWER') && (
-              <button className="btn btn-primary" onClick={() => navigate('/interviews')}>Schedule First Interview</button>
+              <button className="btn btn-primary" onClick={() => navigate('/app/interviews')}>Schedule First Interview</button>
             )}
           </div>
         ) : (

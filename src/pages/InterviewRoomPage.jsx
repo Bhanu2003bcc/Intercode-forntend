@@ -684,6 +684,8 @@ import {
   PhoneOff, Send, Play, Code2, MessageSquare, Users,
   Copy, ChevronDown
 } from 'lucide-react'
+import { useTheme } from '../contexts/ThemeContext'
+import ThemeToggle from '../components/ThemeToggle'
 
 const ALL_STATUSES = ['SCHEDULED', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED']
 
@@ -879,7 +881,7 @@ function IDEPanel({ code, onCodeChange, langValue, onLangChange, running, result
           language={lang.monaco}
           value={code}
           onChange={val => onCodeChange(val || '')}
-          theme="vs-dark"
+          theme={theme === 'classic' || theme === 'github' ? 'light' : 'vs-dark'}
           options={{
             fontSize: 14,
             fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
@@ -922,6 +924,7 @@ export default function InterviewRoomPage() {
   const navigate = useNavigate()
   const { user, hasRole } = useAuth()
   const toast = useToast()
+  const { theme } = useTheme()
 
   const [interview, setInterview] = useState(null)
 
@@ -1218,6 +1221,7 @@ export default function InterviewRoomPage() {
           </span>
         </div>
         <div className="room-header-controls">
+          <ThemeToggle />
           <RoomStatusSelector
             interview={interview}
             onStatusChanged={handleRoomStatusChanged}

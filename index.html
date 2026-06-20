@@ -4,11 +4,38 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Interview & Coding Assessment Platform — Real-time collaborative interviews with integrated IDE, WebRTC video, and instant code execution." />
-    <title>InterviewHub — Professional Assessment Platform</title>
+
+    <!-- Primary SEO -->
+    <title>InterviewHub — Real-Time Collaborative Technical Interview Platform</title>
+    <meta name="description" content="InterviewHub brings live P2P video (WebRTC), a shared Monaco code editor, and instant room sync (STOMP/SockJS) into a single browser tab. Conduct world-class technical interviews without the tooling chaos." />
+    <meta name="keywords" content="technical interview platform, collaborative code editor, WebRTC video interview, live coding interview, online interview tool" />
+    <meta name="author" content="InterviewHub" />
+    <link rel="canonical" href="https://interviewhub.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://interviewhub.app/" />
+    <meta property="og:title"       content="InterviewHub — Real-Time Collaborative Technical Interview Platform" />
+    <meta property="og:description" content="Live P2P video, shared code editor, and instant room sync — everything you need for a great technical interview in one tab." />
+    <meta property="og:image"       content="https://interviewhub.app/og-cover.png" />
+    <!-- TODO: Add real og:image URL once deployed -->
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:site"        content="@InterviewHub" />
+    <meta name="twitter:title"       content="InterviewHub — Real-Time Technical Interviews" />
+    <meta name="twitter:description" content="P2P video + shared code editor + instant sync. One room. Zero tooling friction." />
+    <meta name="twitter:image"       content="https://interviewhub.app/og-cover.png" />
+    <!-- TODO: Add real Twitter handle and og:image -->
+
+    <!-- Performance: preconnect to font origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <!-- font-display:swap is embedded in the URL parameter for Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="root"></div>
