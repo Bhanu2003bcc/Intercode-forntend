@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { useToast } from '../contexts/ToastContext'
-import { Code2, Mail, Lock, User } from 'lucide-react'
+import { Mail, Lock, User } from 'lucide-react'
 import ThemeToggle from '../components/ThemeToggle'
+import logoImg from '../assets/logo.png'
 
 export default function RegisterPage() {
   const [form, setForm] = useState({ email: '', password: '', fullName: '', role: 'CANDIDATE' })
@@ -18,7 +19,7 @@ export default function RegisterPage() {
     if (form.password.length < 8) { setError('Password must be at least 8 characters'); return }
     try {
       await register(form)
-      toast.success('Account created! Welcome to InterviewHub.')
+      toast.success('Account created! Welcome to Selection Sure.')
       navigate('/app/dashboard')
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed')
@@ -48,8 +49,8 @@ export default function RegisterPage() {
         </div>
         <div className="auth-card">
           <div className="auth-logo">
-            <div className="auth-logo-icon"><Code2 size={32} /></div>
-            <h1>INTERVIEWHUB</h1>
+            <img src={logoImg} alt="Selection Sure Logo" className="auth-logo-img" style={{ height: '48px', width: 'auto', objectFit: 'contain', marginBottom: '12px' }} />
+            <h1>SELECTION SURE</h1>
             <p>Create your recruiter or interviewer account today.</p>
           </div>
 

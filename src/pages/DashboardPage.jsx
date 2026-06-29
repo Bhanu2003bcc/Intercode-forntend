@@ -51,7 +51,7 @@ export default function DashboardPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1>{greeting()}, {user?.fullName?.split(' ')[0]} 👋</h1>
-            <p>Here's what's happening on InterviewHub today.</p>
+            <p>Here's what's happening on Selection Sure today.</p>
           </div>
           {hasRole('ADMIN', 'INTERVIEWER') && (
             <button className="btn btn-primary" onClick={() => navigate('/app/interviews')}>

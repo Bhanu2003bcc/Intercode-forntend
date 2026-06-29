@@ -343,12 +343,14 @@
 .lp-hero-mockup {
   width: 100%;
   max-width: 500px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   border-radius: var(--radius-lg);
   border: 3px solid var(--border-color);
   box-shadow: 8px 8px 0px var(--shadow-color);
   animation: lp-float 6s ease-in-out infinite;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   background: var(--bg-surface);
 }
 .lp-hero-badge {

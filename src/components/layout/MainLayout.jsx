@@ -2,8 +2,9 @@ import { Outlet, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import { useState } from 'react'
 import ThemeToggle from '../ThemeToggle'
+import logoImg from '../../assets/logo.png'
 import { 
-  LayoutDashboard, Calendar, BarChart3, LogOut, Menu, X, Code2
+  LayoutDashboard, Calendar, BarChart3, LogOut, Menu, X
 } from 'lucide-react'
 
 const navItems = [
@@ -41,10 +42,8 @@ export default function MainLayout() {
 
       <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-logo">
-          <div className="sidebar-logo-icon">
-            <Code2 size={20} />
-          </div>
-          <span className="sidebar-logo-text">InterviewHub</span>
+          <img src={logoImg} alt="Selection Sure" className="sidebar-logo-img" style={{ height: '32px', width: 'auto', objectFit: 'contain' }} />
+          <span className="sidebar-logo-text">Selection Sure</span>
         </div>
 
         <nav className="sidebar-nav">

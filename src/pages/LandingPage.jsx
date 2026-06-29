@@ -1,6 +1,6 @@
 /**
  * LandingPage.jsx
- * InterviewHub — Redesigned Marketing Landing Page
+ * Selection Sure — Redesigned Marketing Landing Page
  */
 
 import { useState, useEffect, useRef, useCallback } from 'react'
@@ -12,6 +12,7 @@ import {
   Wifi, Star, GitBranch, TerminalSquare, Layers
 } from 'lucide-react'
 import heroMockup from '../assets/hero-mockup.png'
+import logoImg from '../assets/logo.png'
 import ThemeToggle from '../components/ThemeToggle'
 import './LandingPage.css'
 
@@ -96,9 +97,9 @@ function Navbar() {
     <>
       <nav className={`lp-nav ${scrolled ? 'scrolled' : ''}`} role="navigation" aria-label="Main navigation">
         {/* Logo */}
-        <Link to="/" className="lp-nav-logo" aria-label="InterviewHub home">
-          <div className="lp-nav-logo-icon" aria-hidden="true"><Code2 size={20} /></div>
-          <span className="lp-nav-logo-text">InterviewHub</span>
+        <Link to="/" className="lp-nav-logo" aria-label="Selection Sure home">
+          <img src={logoImg} alt="Selection Sure Logo" className="lp-nav-logo-img" style={{ height: '36px', width: 'auto', objectFit: 'contain' }} />
+          <span className="lp-nav-logo-text">Selection Sure</span>
         </Link>
 
         {/* Desktop links */}
@@ -188,7 +189,7 @@ function HeroSection() {
         <div className="lp-hero-visual">
           <img
             src={heroMockup}
-            alt="InterviewHub room showing live video tiles alongside a shared code editor with syntax-highlighted JavaScript"
+            alt="Selection Sure room showing live video tiles alongside a shared code editor with syntax-highlighted JavaScript"
             className="lp-hero-mockup"
             width="960"
             height="720"
@@ -296,7 +297,7 @@ function ProblemSolution() {
         <div className="lp-problem-grid" ref={ref} style={{ opacity: revealed ? 1 : 0, transform: revealed ? 'none' : 'translateY(24px)', transition: 'opacity 0.6s, transform 0.6s' }}>
           {/* Pain */}
           <div>
-            <h3 className="lp-problem-col-label pain">▼ WITHOUT INTERVIEWHUB</h3>
+            <h3 className="lp-problem-col-label pain">▼ WITHOUT SELECTION SURE</h3>
             <div className="lp-pain-items">
               {painItems.map(item => (
                 <div key={item.title} className="lp-pain-item">
@@ -309,7 +310,7 @@ function ProblemSolution() {
 
           {/* Solution */}
           <div>
-            <h3 className="lp-problem-col-label solution">▲ WITH INTERVIEWHUB</h3>
+            <h3 className="lp-problem-col-label solution">▲ WITH SELECTION SURE</h3>
             <div className="lp-solution-items">
               {solutionItems.map(item => (
                 <div key={item.title} className="lp-solution-item">
@@ -379,7 +380,7 @@ function FeaturesGrid() {
           NOTHING YOU DON'T.
         </h2>
         <p className="lp-section-subheading center">
-          InterviewHub cuts the fat. No complex setup, no unnecessary plugins. Just pure interview performance.
+          Selection Sure cuts the fat. No complex setup, no unnecessary plugins. Just pure interview performance.
         </p>
       </div>
 
@@ -491,7 +492,7 @@ function UseCases() {
           THAT HIRES ENGINEERS.
         </h2>
         <p className="lp-section-subheading center">
-          From high-volume screening pipelines to granular technical reviews, InterviewHub is built to scale.
+          From high-volume screening pipelines to granular technical reviews, Selection Sure is built to scale.
         </p>
       </div>
 
@@ -560,7 +561,7 @@ function TechHighlight() {
           NOT AN AFTERTHOUGHT.
         </h2>
         <p className="lp-section-subheading center">
-          We built InterviewHub from the ground up for microsecond latency. A solid interview experience starts with solid code.
+          We built Selection Sure from the ground up for microsecond latency. A solid interview experience starts with solid code.
         </p>
 
         <div className="lp-tech-grid" ref={containerRef}>
@@ -589,7 +590,7 @@ function TechHighlight() {
 const faqs = [
   {
     q: 'Which browsers are supported?',
-    a: 'InterviewHub works on all modern Chromium-based browsers (Chrome 90+, Edge 90+, Brave) and Firefox 90+. Safari 15.4+ is supported for video and audio. No external downloads are required.',
+    a: 'Selection Sure works on all modern Chromium-based browsers (Chrome 90+, Edge 90+, Brave) and Firefox 90+. Safari 15.4+ is supported for video and audio. No external downloads are required.',
   },
   {
     q: 'Is session data private and secure?',
@@ -600,8 +601,8 @@ const faqs = [
     a: 'The Monaco-based editor currently supports Javascript, Typescript, Python, Java, C++, Go, Rust, and Ruby with complete syntax highlighting, automatic indentations, and smart brackets styling.',
   },
   {
-    q: 'Is InterviewHub free to use?',
-    a: 'InterviewHub is currently in its public beta phase, which is completely free for all developer and recruiting accounts. Standard pricing models will be introduced later with special early adopter packages.',
+    q: 'Is Selection Sure free to use?',
+    a: 'Selection Sure is currently in its public beta phase, which is completely free for all developer and recruiting accounts. Standard pricing models will be introduced later with special early adopter packages.',
   },
   {
     q: 'Can candidates join without creating accounts?',
@@ -675,7 +676,7 @@ function CtaBanner() {
           <span>RUN BETTER INTERVIEWS. ✦</span>
         </h2>
         <p>
-          Join engineering leads and recruiters who have replaced their multi-tool stacks with InterviewHub's unified, zero-friction workspaces.
+          Join engineering leads and recruiters who have replaced their multi-tool stacks with Selection Sure's unified, zero-friction workspaces.
         </p>
         <div className="lp-cta-banner-actions">
           <Link to="/register" className="btn btn-primary btn-lg" id="cta-primary">
@@ -701,9 +702,9 @@ function Footer() {
         <div className="lp-footer-top">
           {/* Brand column */}
           <div className="lp-footer-brand">
-            <Link to="/" className="lp-nav-logo" aria-label="InterviewHub home" style={{ display: 'inline-flex' }}>
-              <div className="lp-nav-logo-icon" aria-hidden="true"><Code2 size={18} /></div>
-              <span className="lp-nav-logo-text">InterviewHub</span>
+            <Link to="/" className="lp-nav-logo" aria-label="Selection Sure home" style={{ display: 'inline-flex', alignItems: 'center' }}>
+              <img src={logoImg} alt="Selection Sure Logo" className="lp-nav-logo-img" style={{ height: '32px', width: 'auto', objectFit: 'contain' }} />
+              <span className="lp-nav-logo-text">Selection Sure</span>
             </Link>
             <p>Unified real-time collaborative workspace supporting WebRTC media connections, Monaco IDE coding, and direct evaluator rating dashboards.</p>
           </div>
@@ -742,7 +743,7 @@ function Footer() {
 
         {/* Bottom bar */}
         <div className="lp-footer-bottom">
-          <p>© {year} InterviewHub. All rights reserved.</p>
+          <p>© {year} Selection Sure. All rights reserved.</p>
           <div className="lp-footer-socials" aria-label="Social media">
             <a href="#" className="lp-footer-social-btn" aria-label="GitHub" rel="noopener noreferrer">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { useToast } from '../contexts/ToastContext'
-import { Code2, Mail, Lock, Eye, EyeOff } from 'lucide-react'
+import { Mail, Lock, Eye, EyeOff } from 'lucide-react'
 import ThemeToggle from '../components/ThemeToggle'
+import logoImg from '../assets/logo.png'
 
 export default function LoginPage() {
   const [form, setForm] = useState({ email: '', password: '' })
@@ -59,8 +60,8 @@ export default function LoginPage() {
         </div>
         <div className="auth-card">
           <div className="auth-logo">
-            <div className="auth-logo-icon"><Code2 size={32} /></div>
-            <h1>INTERVIEWHUB</h1>
+            <img src={logoImg} alt="Selection Sure Logo" className="auth-logo-img" style={{ height: '48px', width: 'auto', objectFit: 'contain', marginBottom: '12px' }} />
+            <h1>SELECTION SURE</h1>
             <p>Welcome back. Please login to your account.</p>
           </div>
 
