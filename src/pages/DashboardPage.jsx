@@ -91,11 +91,51 @@ export default function DashboardPage() {
           <div style={{ padding: 48, textAlign: 'center' }}><span className="spinner" style={{ width:32,height:32,margin:'0 auto' }} /></div>
         ) : interviews.length === 0 ? (
           <div className="empty-state">
-            <div className="empty-state-icon">📅</div>
-            <p>No interviews yet</p>
-            {hasRole('ADMIN', 'INTERVIEWER') && (
-              <button className="btn btn-primary" onClick={() => navigate('/app/interviews')}>Schedule First Interview</button>
-            )}
+          <div className="empty-state-icon">
+            {(() => {
+              const now = new Date()
+              const month = now.toLocaleString('default', { month: 'short' }).toUpperCase()
+              const day = now.getDate()
+              return (
+                <div style={{
+                  display: 'inline-flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  width: 56,
+                  borderRadius: 8,
+                  overflow: 'hidden',
+                  border: '2px solid var(--border-color)',
+                  boxShadow: '2px 2px 0px var(--shadow-color)',
+                  fontFamily: 'var(--font-sans)',
+                  lineHeight: 1,
+                }}>
+                  <div style={{
+                    background: '#e03030',
+                    color: '#fff',
+                    width: '100%',
+                    textAlign: 'center',
+                    fontSize: 11,
+                    fontWeight: 800,
+                    letterSpacing: 1,
+                    padding: '3px 0',
+                  }}>{month}</div>
+                  <div style={{
+                    background: 'var(--bg-surface)',
+                    color: 'var(--text-primary)',
+                    width: '100%',
+                    textAlign: 'center',
+                    fontSize: 26,
+                    fontWeight: 700,
+                    padding: '4px 0 5px',
+                  }}>{day}</div>
+                </div>
+              )
+            })()}
+          </div>
+          <p>No interviews yet</p>
+          {hasRole('ADMIN', 'INTERVIEWER') && (
+            <button className="btn btn-primary" onClick={() => navigate('/app/interviews')}>Schedule First Interview</button>
+          )}
           </div>
         ) : (
           <table>
