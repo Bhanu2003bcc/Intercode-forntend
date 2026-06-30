@@ -474,10 +474,10 @@ function HowItWorks() {
    USE CASES
    ============================================================ */
 const useCases = [
-  { emoji: '🏢', title: 'ENGINEERING TEAMS',   desc: 'Standardize evaluation metrics, share session workspace replays, and calibrate scoring across multiple hiring leads.' },
-  { emoji: '🎯', title: 'TECHNICAL RECRUITERS', desc: 'Pre-screen candidate code quality and environment mastery quickly before scheduling expensive engineering syncs.' },
-  { emoji: '🚀', title: 'FAST STARTUPS',        desc: 'Save engineering time. Send clean rooms to candidates in seconds without custom enterprise pricing setups.' },
-  { emoji: '🎓', title: 'BOOTCAMPS & EDTECH',   desc: 'Deliver live mock challenges to student developers and submit structured code evaluations.' },
+  { emoji: '', title: 'ENGINEERING TEAMS',   desc: 'Standardize evaluation metrics, share session workspace replays, and calibrate scoring across multiple hiring leads.' },
+  { emoji: '', title: 'TECHNICAL RECRUITERS', desc: 'Pre-screen candidate code quality and environment mastery quickly before scheduling expensive engineering syncs.' },
+  { emoji: '', title: 'FAST STARTUPS',        desc: 'Save engineering time. Send clean rooms to candidates in seconds without custom enterprise pricing setups.' },
+  { emoji: '', title: 'BOOTCAMPS & EDTECH',   desc: 'Deliver live mock challenges to student developers and submit structured code evaluations.' },
 ]
 
 function UseCases() {
@@ -516,36 +516,69 @@ function UseCases() {
 /* ============================================================
    TECH ARCHITECTURE HIGHLIGHT
    ============================================================ */
+
+// Helper: brand logo via devicons CDN
+const D = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons'
+const TechImg = ({ src, alt }) => (
+  <img src={src} alt={alt} width="30" height="30" style={{ display: 'block', objectFit: 'contain' }} />
+)
+
+// Inline SVG — WebRTC (wifi-broadcast symbol in WebRTC brand blue)
+const WebRTCIcon = () => (
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1877F2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+    <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+    <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+    <circle cx="12" cy="20" r="1" fill="#1877F2" stroke="none" />
+  </svg>
+)
+
+// Inline SVG — STOMP / WebSocket (two-arrow message relay)
+const StompIcon = () => (
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <polyline points="17 1 21 5 17 9" />
+    <path d="M3 11V9a4 4 0 0 1 4-4h14" />
+    <polyline points="7 23 3 19 7 15" />
+    <path d="M21 13v2a4 4 0 0 1-4 4H3" />
+  </svg>
+)
+
 const techStack = [
   {
-    icon: '☕',
-    iconBg: '#FEF9E7',
+    icon: <TechImg src={`${D}/spring/spring-original.svg`} alt="Spring Boot" />,
+    iconBg: '#f0fdf4',
     name: 'SPRING BOOT API',
     role: 'Robust core routing, strict JWT token validation, and secure room state handlers.',
   },
   {
-    icon: '📡',
-    iconBg: '#E8F8F5',
+    icon: <WebRTCIcon />,
+    iconBg: '#eff6ff',
     name: 'P2P WEBRTC',
     role: 'Ultra-low latency audio/video direct connection, keeping bandwidth costs and latency zero.',
   },
   {
-    icon: '⚡',
-    iconBg: '#EBF5FB',
+    icon: <StompIcon />,
+    iconBg: '#f5f3ff',
     name: 'STOMP SYSTEM',
     role: 'Real-time WebSocket wrapper ensuring fast client-to-client sync of editor workspaces.',
   },
   {
-    icon: '🗄️',
-    iconBg: '#FCF3CF',
+    icon: <TechImg src={`${D}/redis/redis-original.svg`} alt="Redis" />,
+    iconBg: '#fff1f0',
     name: 'REDIS CACHING',
     role: 'Fast state store caching active session locks and pub/sub message synchronization.',
   },
   {
-    icon: '🐘',
-    iconBg: '#E8F8F5',
+    icon: <TechImg src={`${D}/postgresql/postgresql-original.svg`} alt="PostgreSQL" />,
+    iconBg: '#eff6ff',
     name: 'POSTGRES STORE',
     role: 'Durable metadata database storing past analytics summaries and customized scorecards.',
+  },
+  {
+    icon: <TechImg src={`${D}/java/java-original.svg`} alt="Java" />,
+    iconBg: '#fff7ed',
+    name: 'JAVA MAIL SENDER',
+    role: 'Automated transactional email delivery for interview invitations, room links, and candidate notifications.',
   },
 ]
 

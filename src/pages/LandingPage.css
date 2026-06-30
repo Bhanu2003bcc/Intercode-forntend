@@ -1003,8 +1003,18 @@
   margin: 0 auto var(--space-4);
   font-size: 28px;
   box-shadow: 2px 2px 0px var(--shadow-color);
-  background: var(--bg-base);
+  /* background comes from inline style (brand colour) — do NOT override */
   color: var(--text-primary);
+  overflow: hidden;
+}
+
+/* Crisp rendering for devicon <img> and inline <svg> inside the icon box */
+.lp-tech-icon img,
+.lp-tech-icon svg {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  display: block;
 }
 
 .lp-tech-name {
