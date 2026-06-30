@@ -2,14 +2,11 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { analyticsApi, interviewApi } from '../services/api'
-import { Calendar, Users, CheckCircle, Clock, TrendingUp, ArrowRight, Plus } from 'lucide-react'
+import { ArrowRight, Plus } from 'lucide-react'
 
-function StatCard({ icon: Icon, label, value, color, iconBg }) {
+function StatCard({ label, value }) {
   return (
     <div className="stat-card">
-      <div className="stat-icon" style={{ background: iconBg }}>
-        <Icon size={22} color={color} />
-      </div>
       <div className="stat-value">{value ?? <span className="spinner" />}</div>
       <div className="stat-label">{label}</div>
     </div>
@@ -50,7 +47,7 @@ export default function DashboardPage() {
       <div className="page-header">
         <div className="flex items-center justify-between">
           <div>
-            <h1>{greeting()}, {user?.fullName?.split(' ')[0]} 👋</h1>
+            <h1>{greeting()}, {user?.fullName?.split(' ')[0]} </h1>
             <p>Here's what's happening on Selection Sure today.</p>
           </div>
           {hasRole('ADMIN', 'INTERVIEWER') && (
@@ -64,18 +61,12 @@ export default function DashboardPage() {
       {/* Stats */}
       {hasRole('ADMIN', 'INTERVIEWER') && (
         <div className="stats-grid">
-          <StatCard icon={Calendar} label="Total Interviews" value={stats?.totalInterviews}
-            color="var(--accent-primary)" iconBg="var(--bg-base)" />
-          <StatCard icon={Clock} label="Scheduled" value={stats?.scheduledInterviews}
-            color="var(--accent-cyan)" iconBg="#E8F8F5" />
-          <StatCard icon={TrendingUp} label="In Progress" value={stats?.inProgressInterviews}
-            color="var(--accent-amber)" iconBg="#FEF9E7" />
-          <StatCard icon={CheckCircle} label="Completed" value={stats?.completedInterviews}
-            color="var(--accent-green)" iconBg="#EAF2F8" />
-          <StatCard icon={Users} label="Candidates" value={stats?.totalCandidates}
-            color="var(--accent-pink)" iconBg="#FADBD8" />
-          <StatCard icon={Users} label="Submissions" value={stats?.totalSubmissions}
-            color="var(--accent-secondary)" iconBg="#EBF5FB" />
+          <StatCard label="Total Interviews" value={stats?.totalInterviews} />
+          <StatCard label="Scheduled" value={stats?.scheduledInterviews} />
+          <StatCard label="In Progress" value={stats?.inProgressInterviews} />
+          <StatCard label="Completed" value={stats?.completedInterviews} />
+          <StatCard label="Candidates" value={stats?.totalCandidates} />
+          <StatCard label="Submissions" value={stats?.totalSubmissions} />
         </div>
       )}
 

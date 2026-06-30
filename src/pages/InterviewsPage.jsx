@@ -275,7 +275,10 @@ export default function InterviewsPage() {
         <div style={{ textAlign:'center', padding: 80 }}><span className="spinner" style={{ width:40,height:40,margin:'0 auto' }} /></div>
       ) : filtered.length === 0 ? (
         <div className="empty-state">
-          <div className="empty-state-icon">📅</div>
+          <div className="custom-calendar-icon" aria-hidden="true">
+            <div className="calendar-header">{new Date().toLocaleDateString('en-US', { month: 'short' })}</div>
+            <div className="calendar-body">{new Date().getDate()}</div>
+          </div>
           <p>No {statusFilter !== 'ALL' ? statusFilter.toLowerCase().replace('_',' ') + ' ' : ''}interviews found</p>
           {hasRole('ADMIN', 'INTERVIEWER') && (
             <button className="btn btn-primary" onClick={() => setShowModal(true)}>Schedule First Interview</button>
