@@ -98,7 +98,7 @@ function Navbar() {
       <nav className={`lp-nav ${scrolled ? 'scrolled' : ''}`} role="navigation" aria-label="Main navigation">
         {/* Logo */}
         <Link to="/" className="lp-nav-logo" aria-label="Selection Sure home">
-          <img src={logoImg} alt="Selection Sure Logo" className="lp-nav-logo-img" style={{ height: '36px', width: 'auto', objectFit: 'contain' }} />
+          <img src={logoImg} alt="Selection Sure Logo" className="lp-nav-logo-img" style={{ height: '48px', width: 'auto', objectFit: 'contain' }} />
           <span className="lp-nav-logo-text">Selection Sure</span>
         </Link>
 
@@ -736,7 +736,7 @@ function Footer() {
           {/* Brand column */}
           <div className="lp-footer-brand">
             <Link to="/" className="lp-nav-logo" aria-label="Selection Sure home" style={{ display: 'inline-flex', alignItems: 'center' }}>
-              <img src={logoImg} alt="Selection Sure Logo" className="lp-nav-logo-img" style={{ height: '32px', width: 'auto', objectFit: 'contain' }} />
+              <img src={logoImg} alt="Selection Sure Logo" className="lp-nav-logo-img" style={{ height: '40px', width: 'auto', objectFit: 'contain' }} />
               <span className="lp-nav-logo-text">Selection Sure</span>
             </Link>
             <p>Unified real-time collaborative workspace supporting WebRTC media connections, Monaco IDE coding, and direct evaluator rating dashboards.</p>
