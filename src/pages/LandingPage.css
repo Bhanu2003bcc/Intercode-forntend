@@ -306,7 +306,7 @@
 
 .lp-hero-grid {
   display: grid;
-  grid-template-columns: 0.7fr 1.3fr;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
   gap: clamp(32px, 5vw, 64px);
   align-items: center;
   max-width: 1600px;
@@ -420,18 +420,22 @@
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-width: 0;          /* prevent grid blowout */
+  width: 100%;
 }
 
 .lp-hero-mockup {
   width: 100%;
   max-width: 100%;
   height: auto;
+  max-height: 520px;     /* cap height so it never overflows on short screens */
   border-radius: var(--radius-lg);
   border: 3px solid var(--border-color);
   box-shadow: 8px 8px 0px var(--shadow-color);
   animation: lp-float 6s ease-in-out infinite;
   display: block;
-  object-fit: contain;
+  object-fit: cover;     /* fill frame — source is 1918×1076 (16:9) */
   background: var(--bg-surface);
 }
 

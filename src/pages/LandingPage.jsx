@@ -191,8 +191,8 @@ function HeroSection() {
             src={heroMockup}
             alt="Selection Sure room showing live video tiles alongside a shared code editor with syntax-highlighted JavaScript"
             className="lp-hero-mockup"
-            width="960"
-            height="720"
+            width="1918"
+            height="1076"
             loading="eager"
             fetchPriority="high"
           />
